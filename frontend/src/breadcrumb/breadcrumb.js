@@ -1,9 +1,9 @@
 import React from 'react'
 import Services from '../services'
 
-const BreadCrumb = ({ currentNode }) => {
+const BreadCrumb = ({ currentNode, navigateParent }) => {
     return (
-        <span onClick={()=>console.log("Clicked")}>{currentNode} / </span>
+        <span onClick={(e)=> navigateParent(e.target.innerText) }>{currentNode} / </span>
     )
 }
 

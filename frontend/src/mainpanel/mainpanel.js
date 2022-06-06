@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { NodeContext } from '../App';
 
-const MainPanel = () => {
+const MainPanel = ({ navigateChild }) => {
     const nodes = useContext(NodeContext);
 
     return (
         <ul>
             {
                 nodes.children.map((value, index) => (
-                    <li>{value.name}</li>
+                    <li key={index} onClick={(e) => navigateChild(e.target.innerText)}>{value.name}</li>
                 ))
             }
         </ul>
