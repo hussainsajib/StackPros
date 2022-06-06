@@ -10,6 +10,7 @@ function App() {
     const [url, setURL] = useState(Services.generateURL("root"))
     const [nodes, setNodes] = useState(null)
     const [loading, setLoading] = useState(true)
+    
     function navigateChild(value) {
         setURL(`${url}${value}/`);
         console.log(url);
