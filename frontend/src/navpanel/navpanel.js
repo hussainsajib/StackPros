@@ -16,7 +16,7 @@ const NavPanel = ({ navigateParent }) => {
         }
     }
     return (
-        <div>{result.map(item => <BreadCrumb currentNode={item} key={item} navigateParent={navigateParent} />)}</div>
+        <div className='navpanel'>{result.map(item => <BreadCrumb currentNode={item} key={item} navigateParent={navigateParent} />)}</div>
     )
 }
 

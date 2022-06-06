@@ -3,7 +3,7 @@ import Services from '../services'
 
 const BreadCrumb = ({ currentNode, navigateParent }) => {
     return (
-        <span onClick={(e)=> navigateParent(e.target.innerText) }>{currentNode} / </span>
+        <span onClick={(e)=> navigateParent(e.target.innerText) } className="breadcrumb">{currentNode} / </span>
     )
 }
 
