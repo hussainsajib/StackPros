@@ -17,7 +17,7 @@ function App() {
     function navigateParent(value){
         let cleanValue = value.substring(0, value.indexOf(" "));
         if(cleanValue !== "root"){
-            let updatedUrl = url.substring(0, url.indexOf(cleanValue))
+            let updatedUrl = url.substring(0, url.indexOf(cleanValue) + cleanValue.length + 1)
             setURL(updatedUrl)
         }
         else{
