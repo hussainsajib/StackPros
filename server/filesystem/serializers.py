@@ -12,6 +12,7 @@ class FileTypesSerializer(serializers.ModelSerializer):
 
 class FileStructureSerializer(serializers.ModelSerializer):
     file_type = FileTypesSerializer()
+    parent = serializers.StringRelatedField()
 
     class Meta:
         model = models.FileStructure
@@ -19,5 +20,5 @@ class FileStructureSerializer(serializers.ModelSerializer):
 
     def get_fields(self):
         fields = super(FileStructureSerializer, self).get_fields()
-        fields['parent'] = FileStructureSerializer(many=True)
+        fields['parent'] = FileStructureSerializer()
         return fields
