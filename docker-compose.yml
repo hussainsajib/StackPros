@@ -1,0 +1,29 @@
+services:
+    project:
+        restart: always
+        container_name: code
+        command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+        build:
+            context: ./server/
+            dockerfile: Dockerfile
+        ports:
+            - "8000:8000"
+        networks:
+            - local
+    frontend:
+        restart: always
+        command: npm start
+        container_name: front
+        build:
+            context: ./frontend/
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"
+        stdin_open: true
+        depends_on:
+            - project
+        networks:
+            - local
+networks:
+    local:
+        driver: bridge
